@@ -1,0 +1,37 @@
+#linkButton
+{
+	text-decoration: none;
+	color:white;
+}
+html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+}
+#toolBoxContext
+{
+	height: 100%;
+}
+#toolBox_footer
+{
+    /* 設定footer的高度 */
+    height: 40px;
+    box-sizing: border-box;
+    /* 設定footer絕對位置在底部 */
+    position: absolute;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+}
+th 
+{
+    border-bottom: 1px solid #d6d6d6;
+}
+
+tr:nth-child(even) 
+{
+    background: #444444;
+}
+#td
+{
+	text-align:center;
+}
