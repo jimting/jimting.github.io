@@ -29,9 +29,13 @@ th
 
 tr:nth-child(even) 
 {
-    background: #444444;
+    background: #DDDDDD;
 }
 #td
 {
 	text-align:center;
+}
+.ListTitleCell
+{
+	font-weight:bold;
 }

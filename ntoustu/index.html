@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+	<metacharset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/set.css">
+	<script src="./js/ntoustu.js"></script>
+    <title>
+      國立臺灣海洋大學學生事務處
+    </title>
+  </head>
+  <body onload=getAllData()>
+
+    <div data-role="page" id="pageone" data-theme="b">
+
+		<div data-role="panel" id="toolBox1" data-position="right"> 
+			<div id="toolBoxContext">
+				<h2>想到哪裡呢？</h2>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<a href="#pagetwo" class="btn btn-default btn-lg btn-block" id="linkButton" style="color:black;" onclick=getData("sl") data-rel="close">生輔組</a>
+						<a href="#pagetwo" class="btn btn-primary btn-lg btn-block" id="linkButton" onclick=getData("sc") data-transition="fade" data-rel="close">課指組</a>
+						<a href="#pagetwo" class="btn btn-success btn-lg btn-block" id="linkButton" onclick=getData("sd") data-rel="close">住輔組</a>
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#pagetwo" class="btn btn-info btn-lg btn-block" id="linkButton" onclick=getData("sm") data-rel="close">衛保組</a>
+						<a href="#pagetwo" class="btn btn-warning btn-lg btn-block" id="linkButton" onclick=getData("sq") data-rel="close">諮輔組</a>
+						<a href="#pagetwo" class="btn btn-danger btn-lg btn-block" id="linkButton" onclick=getData("military") data-rel="close">軍訓室</a>
+					</div>
+				</div>
+				<a href="#pagetwo" class="ui-btn ui-btn-b" onclick=getClubAllPost() data-rel="close">學生社團區</a>
+				<div id="loginArea">
+					<a href="#login" class="ui-btn ui-btn-b" data-rel="close">我要登入</a>
+				</div>
+				<a href="index1.html" class="ui-btn ui-btn-a" rel="external" data-transition="fade">白色版本</a>
+			</div>
+			<footer id="toolBox_footer">
+				<p>Web Desing by JT</p>
+			</footer>
+		</div>
+
+		<div data-role="header">
+			<h1>國立臺灣海洋大學學生事務處</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#toolBox1" data-icon="grid">工具列</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" >
+				
+			</div>
+			<table data-role="table" class="ui-responsive ui-shadow" id="myTable">
+				<thead>
+					<tr>
+						<th>組別</th>
+						<th>公告</th>
+						<th>日期</th>
+					</tr>
+				</thead>
+				<tbody id="userData">
+					
+				</tbody>
+			</table>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" data-icon="arrow-l" onclick=changeIndexPage(0)>上一頁</a></li>
+					<li><a href="#pageone" data-icon="arrow-r" onclick=changeIndexPage(1)>下一頁</a></li>
+				</ul>
+			</div>
+		</div>
+    </div>
+	
+	<div data-role="page" id="pagetwo" data-theme="b">
+
+		<div data-role="panel" id="toolBox2" data-position="right"> 
+			<div id="toolBoxContext">
+				<h2>想到哪裡呢？</h2>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<a href="#pagetwo" class="btn btn-default btn-lg btn-block" id="linkButton" style="color:black;" onclick=getData("sl") data-rel="close">生輔組</a>
+						<a href="#pagetwo" class="btn btn-primary btn-lg btn-block" id="linkButton" onclick=getData("sc") data-transition="fade" data-rel="close">課指組</a>
+						<a href="#pagetwo" class="btn btn-success btn-lg btn-block" id="linkButton" onclick=getData("sd") data-rel="close">住輔組</a>
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#pagetwo" class="btn btn-info btn-lg btn-block" id="linkButton" onclick=getData("sm") data-rel="close">衛保組</a>
+						<a href="#pagetwo" class="btn btn-warning btn-lg btn-block" id="linkButton" onclick=getData("sq") data-rel="close">諮輔組</a>
+						<a href="#pagetwo" class="btn btn-danger btn-lg btn-block" id="linkButton" onclick=getData("military") data-rel="close">軍訓室</a>
+					</div>
+				</div>
+				<a href="#pagetwo" class="ui-btn ui-btn-b"  onclick=getClubAllPost() data-rel="close">學生社團區</a>
+				<div id="loginArea2">
+					<a href="#login" class="ui-btn ui-btn-b" data-rel="close">我要登入</a>
+				</div>
+				<a href="index1.html" class="ui-btn ui-btn-a" rel="external" data-transition="fade">白色版本</a>
+			</div>
+			<footer id="toolBox_footer">
+				<p>Web Desing by JT</p>
+			</footer>
+		</div>
+
+		<div data-role="header">
+			<h1>國立臺灣海洋大學學生事務處</h1>
+			<div data-role="navbar">
+				<ul>
+					
+					<li><a href="#pageone" onclick=getAllData() data-icon="home" rel="external" data-transition="fade">回到首頁</a></li>
+					<li><a href="#toolBox2" data-icon="grid">工具列</a></li>
+				</ul>
+			</div>
+		</div>
+	  <div data-role="main" class="ui-content">
+		<table data-role="table" class="ui-responsive ui-shadow" id="myTable">
+			<thead>
+				<tr>
+					<th>組別</th>
+					<th>公告</th>
+					<th>日期</th>
+				</tr>
+			</thead>
+			<tbody id="userData2">
+				
+			</tbody>
+		</table>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pagetwo" data-icon="arrow-l" onclick=changeSelectPage(0)>上一頁</a></li>
+					<li><a href="#pagetwo" data-icon="arrow-r" onclick=changeSelectPage(1)>下一頁</a></li>
+				</ul>
+			</div>
+		</div>
+    </div>
+	
+	<div data-role="page" id="link" data-theme="b">
+		<div data-role="header">
+			<h1>國立臺灣海洋大學學生事務處</h1>
+			<div data-role="navbar">
+				<ul>	
+					<li><a href="#" data-icon="home" data-rel="back" data-transition="fade">上一頁</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content" id="link-content">
+			<img src="http://140.121.177.100/ntoustu/dataControl/loading.gif" alt="請稍待片刻" border="0" />
+		</div>
+	</div>
+	<div data-role="page" id="post" data-theme="b">
+		<div data-role="header">
+			<h1>國立臺灣海洋大學學生事務處</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" onclick=getAllData() data-icon="home" data-rel="back" data-transition="fade">取消</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content" id="post_area">
+			
+		</div>
+	</div>
+	<div data-role="page" id="login" data-theme="b">
+		<div data-role="header">
+			<h1>國立臺灣海洋大學學生事務處</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-icon="home" data-rel="back" data-transition="fade">取消</a></li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<h3>登入</h3>
+			<input type="text" id="user_number" placeholder="學號/教職員號">
+			<input type="password" id="user_pw" placeholder="密碼">
+			<a href="#loginPage" class="btn btn-default" data-rel="popup" data-transition="fade" onclick=checkLogin() >登入</a><a href="#registerPage" data-rel="popup" data-transition="fade">還沒有帳號嗎？</a>
+			<div data-role="popup" id="registerPage" class="ui-content" data-overlay-theme="b">
+				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right" style="height:50px;width:50px;">Close</a>
+				<iframe id="post_area" src="http://140.121.177.100/consent.php" style="width:100%;height:500px;border:none;"></iframe>
+			</div>
+			<div data-role="popup" id="loginPage" class="ui-content" data-overlay-theme="b">
+				<img src="http://140.121.177.100/ntoustu/dataControl/loading.gif" alt="請稍待片刻" border="0" />
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="edit" data-theme="b">
+		<div data-role="header">
+			<h1>國立臺灣海洋大學學生事務處</h1>
+			<div data-role="navbar">
+				<ul>	
+					<li><a href="#" data-icon="home" data-rel="back" data-transition="fade">上一頁</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content" id="edit-content">
+			<img src="http://140.121.177.100/ntoustu/dataControl/loading.gif" alt="請稍待片刻" border="0" />
+		</div>
+	</div>
+	</body>
+</html>
