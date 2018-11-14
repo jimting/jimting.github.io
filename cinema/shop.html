@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Cinema - Home</title>
+		<title>Cinema - Shop</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -48,8 +48,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="shop.html">Shop</a></li>
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="shop.html">Shop</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -69,7 +69,7 @@
 			</div>
 		</nav>
 
-		<!--Movie Slide-->
+		<!--Shop Slide-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -79,18 +79,18 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active"  data-toggle="modal" data-target="#MovieModal">
-					<img src="https://placehold.it/1200x400?text=New Movies" alt="New Movies">
+				<div class="item active"  data-toggle="modal" data-target="#GoodsModal">
+					<img src="https://placehold.it/1200x400?text=Some Goods" alt="New Movies">
 					<div class="carousel-caption">
-						<h3>New Movies</h3>
+						<h3>Some Goods</h3>
 						<p>Click to info.</p>
 					</div>      
 				</div>
 
-				<div class="item"  data-toggle="modal" data-target="#MovieModal">
-					<img src="https://placehold.it/1200x400?text=Another Movie Maybe" alt="Movies">
+				<div class="item"  data-toggle="modal" data-target="#GoodsModal">
+					<img src="https://placehold.it/1200x400?text=Some Goods" alt="Movies">
 					<div class="carousel-caption">
-						<h3>New Movies</h3>
+						<h3>Some Goods</h3>
 						<p>Click to info.</p>
 					</div>      
 				</div>
@@ -105,80 +105,84 @@
 				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
-		</div>
+		</div><br><br>
   
-		<!--Movie Content-->
-		<div class="container text-center">    
-			<h3>What You Have</h3><br>
+		<!--Goods Content-->
+		<div class="container">    
 			<div class="row">
-			
-				<!--MovieModal Example-->
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal">
-					<img src="https://placehold.it/150x80?text=Movie1" class="img-responsive" style="width:100%" alt="Movie1">
-					<p>Click to info.</p>
+				<div class="col-sm-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">New!</div>
+						<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+						<div class="panel-footer">Some intro.</div>
+					</div>
 				</div>
-				
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal"> 
-					<img src="https://placehold.it/150x80?text=Movie2" class="img-responsive" style="width:100%" alt="Movie2">
-					<p>Click to info.</p>    
+				<div class="col-sm-4"> 
+					<div class="panel panel-danger">
+						<div class="panel-heading">New!</div>
+						<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+						<div class="panel-footer">Some intro.</div>
+					</div>
 				</div>
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal"> 
-					<img src="https://placehold.it/150x80?text=Movie3" class="img-responsive" style="width:100%" alt="Movie3">
-					<p>Click to info.</p>    
+				<div class="col-sm-4"> 
+					<div class="panel panel-success">
+						<div class="panel-heading">New!</div>
+						<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+						<div class="panel-footer">Some intro.</div>
+					</div>
 				</div>
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal"> 
-					<img src="https://placehold.it/150x80?text=Movie4" class="img-responsive" style="width:100%" alt="Movie4">
-					<p>Click to info.</p>    
-				</div>
-    
-			</div>
+			</div><br>
 			<div class="row">
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal">
-					<img src="https://placehold.it/150x80?text=Movie5" class="img-responsive" style="width:100%" alt="Movie5">
-					<p>Click to info.</p>
+				<div class="col-sm-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">New!</div>
+						<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+						<div class="panel-footer">Some intro.</div>
+					</div>
 				</div>
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal"> 
-					<img src="https://placehold.it/150x80?text=Movie6" class="img-responsive" style="width:100%" alt="Movie6">
-					<p>Click to info.</p>    
+				<div class="col-sm-4"> 
+					<div class="panel panel-primary">
+						<div class="panel-heading">New!</div>
+						<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+						<div class="panel-footer">Some intro.</div>
+					</div>
 				</div>
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal"> 
-					<img src="https://placehold.it/150x80?text=Movie7" class="img-responsive" style="width:100%" alt="Movie7">
-					<p>Click to info.</p>    
+				<div class="col-sm-4"> 
+					<div class="panel panel-primary">
+						<div class="panel-heading">New!</div>
+						<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+						<div class="panel-footer">Some intro.</div>
+					</div>
 				</div>
-				<div class="col-sm-3" data-toggle="modal" data-target="#MovieModal"> 
-					<img src="https://placehold.it/150x80?text=Movie8" class="img-responsive" style="width:100%" alt="Movie8">
-					<p>Click to info.</p>    
-				</div>
-    
-			</div>
+			</div><br>
 			<div class="row">
 				
 				<div class="col-sm-4">
 				</div>
 				<div class="col-sm-4">
-					<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#MovieListModal">Buy new movies</button> 
+					<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#GoodsListModal">See more</button> 
 				</div>
 				<div class="col-sm-4">
 				</div>
 			</div>
 		</div><br>
 
-		<!-- Movie Info Modal -->
-		<div id="MovieModal" class="modal fade" role="dialog">
+		<!-- Goods Info Modal -->
+		<div id="GoodsModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-lg">
 
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Movie Name</h4>
+						<h4 class="modal-title">Name</h4>
 					</div>
 					<div class="modal-body">
-						<img src="https://placehold.it/500x300?text=Movie1" class="img-responsive" style="width:100%" alt="Movie1">
-						<p>Something about the movie.</p>
+						<img src="https://placehold.it/500x300?text=Something" class="img-responsive" style="width:100%" alt="Something">
+						<p>Something about the goods.</p>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Watch</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">I want it!</button>
 					</div>
 				</div>
 
@@ -215,15 +219,15 @@
 			</div>
 		</div>
 		
-		<!--Movie List Modal-->
-		<div id="MovieListModal" class="modal fade" role="dialog">
+		<!--Shops List Modal-->
+		<div id="GoodsListModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-lg">
 
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Movies List</h4>
+						<h4 class="modal-title">GoodsList</h4>
 					</div>
 					<div class="modal-body">
 						<div class="list-group">
@@ -231,12 +235,12 @@
 								<div class="container text-center"> 
 									<div class="row">
 										<div class="col-sm-3">
-											<img src="https://placehold.it/150x80?text=Movie1" class="img-responsive" style="width:100%" alt="Movie1">
-											<p>Movie Name</p>
+											<img src="https://placehold.it/150x80?text=Something" class="img-responsive" style="width:100%" alt="Something">
+											<p>Name</p>
 										</div>
 									
 										<div class="col-sm-9">
-										Movie Intro.
+										Intro.
 										</div>
 									</div>
 								</div>
@@ -245,12 +249,12 @@
 								<div class="container text-center"> 
 									<div class="row">
 										<div class="col-sm-3">
-											<img src="https://placehold.it/150x80?text=Movie1" class="img-responsive" style="width:100%" alt="Movie1">
-											<p>Movie Name</p>
+											<img src="https://placehold.it/150x80?text=Something" class="img-responsive" style="width:100%" alt="Something">
+											<p>Name</p>
 										</div>
 									
 										<div class="col-sm-9">
-										Movie Intro.
+										Intro.
 										</div>
 									</div>
 								</div>
@@ -259,12 +263,12 @@
 								<div class="container text-center"> 
 									<div class="row">
 										<div class="col-sm-3">
-											<img src="https://placehold.it/150x80?text=Movie1" class="img-responsive" style="width:100%" alt="Movie1">
-											<p>Movie Name</p>
+											<img src="https://placehold.it/150x80?text=Something" class="img-responsive" style="width:100%" alt="Something">
+											<p>Name</p>
 										</div>
 									
 										<div class="col-sm-9">
-										Movie Intro.
+										Intro.
 										</div>
 									</div>
 								</div>
