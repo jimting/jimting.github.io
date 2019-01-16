@@ -32,9 +32,82 @@
 					display: none; 
 					}
 			}
+			.item
+			{
+				max-height:300px;
+			}
+			.text-area
+			{
+				word-break: break-all;
+			}
 		</style>
+		<script>
+			var groceryData, groceryDataLength;
+			function init()
+			{
+				$.ajax({
+		        url: "http://140.121.196.23:4103/getGrocery",
+				data:
+				{
+					userID : 1
+				},
+				type:"GET",
+		        success: function (response) 
+		        {
+					//trans string to jsonarray
+					groceryData = $.parseJSON(response);
+					
+					//data's length
+					groceryDataLength = groceryData.length;
+					
+					//set shop slide (total 5 slide pages) in id=grocerySlider
+					//clear the slide area and set content
+					$("#grocerySlider").html('');
+					for(var i = 0;i < 5;i++)
+					{
+						var random = Math.floor((Math.random() * groceryDataLength));
+						if(i == 0)
+							$("#grocerySlider").append('<div class="item active"  data-toggle="modal" data-target="#GoodsModal" onclick=setGoodsModal('+random+')><img src="'+groceryData[random].img_url+'" alt="'+groceryData[random].name+'"><div class="carousel-caption"><h3>'+groceryData[random].name+'</h3><p>Click to info.</p></div></div>');
+						else
+							$("#grocerySlider").append('<div class="item"  data-toggle="modal" data-target="#GoodsModal" onclick=setGoodsModal('+random+')><img src="'+groceryData[random].img_url+'" alt="'+groceryData[random].name+'"><div class="carousel-caption"><h3>'+groceryData[random].name+'</h3><p>Click to info.</p></div></div>');
+					}
+					
+					//set goods content(total 2 rows and 3 goods per row) in id=row1, row2
+					//clear row1 and set content
+					$("#row1").html('');
+					for(var i = 0;i < 3;i++)
+					{
+						var random = Math.floor((Math.random() * groceryDataLength));
+						$("#row1").append('<div class="col-sm-4" data-toggle="modal" data-target="#GoodsModal" onclick=setGoodsModal('+random+')><div class="panel panel-primary"><div class="panel-heading">New! $'+groceryData[random].price+'</div><div class="panel-body"><img src="'+groceryData[random].img_url+'" class="img-responsive" style="width:100%" alt="'+groceryData[random].name+'"></div><div class="panel-footer">'+groceryData[random].name+'</div></div></div>');
+					}
+					//clear row2 and set content
+					$("#row2").html('');
+					for(var i = 0;i < 3;i++)
+					{
+						var random = Math.floor((Math.random() * groceryDataLength));
+						$("#row2").append('<div class="col-sm-4" data-toggle="modal" data-target="#GoodsModal" onclick=setGoodsModal('+random+')><div class="panel panel-primary"><div class="panel-heading">New! $'+groceryData[random].price+'</div><div class="panel-body"><img src="'+groceryData[random].img_url+'" class="img-responsive" style="width:100%" alt="'+groceryData[random].name+'"></div><div class="panel-footer">'+groceryData[random].name+'</div></div></div>');
+					}
+					
+					//set the goodslist
+					//clear the goodslist
+					$('#goodsList').html('');
+					for(var i = 0;i < groceryDataLength;i++)
+					{
+						$('#goodsList').append('<a href="#" class="list-group-item"><div class="container text-center"><div class="row"><div class="col-sm-3"><img src="'+groceryData[i].img_url+'" class="img-responsive" style="width:100%" alt="'+groceryData[i].name+'"><p>$ '+groceryData[i].price+'</p></div><div class="col-sm-5 text-area">'+groceryData[i].name+'</div></div></div></a>');
+					}
+		        },
+		        dataType: "text",
+		        cache: false
+		        });
+			}
+			function setGoodsModal(i)
+			{
+				//change the info in goods modal
+				$('#modalContent').html('<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">$ '+groceryData[i].price+'</h4></div><div class="modal-body"><img src="'+groceryData[i].img_url+'" class="img-responsive" style="width:100%" alt="Something"><p>'+groceryData[i].name+'</p></div>')
+			}
+		</script>
 	</head>
-	<body>
+	<body onload=init()>
 		<!--Header-->
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
@@ -75,25 +148,14 @@
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
+				
 			</ol>
-
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active"  data-toggle="modal" data-target="#GoodsModal">
-					<img src="https://placehold.it/1200x400?text=Some Goods" alt="New Movies">
-					<div class="carousel-caption">
-						<h3>Some Goods</h3>
-						<p>Click to info.</p>
-					</div>      
-				</div>
-
-				<div class="item"  data-toggle="modal" data-target="#GoodsModal">
-					<img src="https://placehold.it/1200x400?text=Some Goods" alt="Movies">
-					<div class="carousel-caption">
-						<h3>Some Goods</h3>
-						<p>Click to info.</p>
-					</div>      
-				</div>
+			<div id="grocerySlider" class="carousel-inner" role="listbox">
+				
 			</div>
 
 			<!-- Left and right controls -->
@@ -109,7 +171,7 @@
   
 		<!--Goods Content-->
 		<div class="container">    
-			<div class="row">
+			<div class="row" id="row1">
 				<div class="col-sm-4">
 					<div class="panel panel-primary">
 						<div class="panel-heading">New!</div>
@@ -132,7 +194,7 @@
 					</div>
 				</div>
 			</div><br>
-			<div class="row">
+			<div class="row" id="row2">
 				<div class="col-sm-4">
 					<div class="panel panel-primary">
 						<div class="panel-heading">New!</div>
@@ -172,7 +234,7 @@
 			<div class="modal-dialog modal-lg">
 
 				<!-- Modal content-->
-				<div class="modal-content">
+				<div class="modal-content" id="modalContent">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Name</h4>
@@ -180,9 +242,6 @@
 					<div class="modal-body">
 						<img src="https://placehold.it/500x300?text=Something" class="img-responsive" style="width:100%" alt="Something">
 						<p>Something about the goods.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">I want it!</button>
 					</div>
 				</div>
 
@@ -230,7 +289,7 @@
 						<h4 class="modal-title">GoodsList</h4>
 					</div>
 					<div class="modal-body">
-						<div class="list-group">
+						<div class="list-group" id="goodsList">
 							<a href="#" class="list-group-item">
 								<div class="container text-center"> 
 									<div class="row">
