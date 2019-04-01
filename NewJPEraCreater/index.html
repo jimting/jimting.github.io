@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日本年號梗圖產生器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <div id="app">
+        <canvas id="canvas" width="1358" height="886"></canvas>
+        <div id="input-field">
+            <div>
+                <h3>輸入文字:</h3>
+                <textarea type="text" v-model="title"></textarea>
+            </div>
+			
+            <div>
+                <h3>調整細節</h3>
+                <div class="sub">
+                    <div class="color-picker">
+						<h4>顏色<span class="description">(範圍0~255)</span></h4>
+                        <div class="sub">
+                            R: <input type="number" class="color-num" v-model="color.title.r" min="0" max="255">
+                            G: <input type="number" class="color-num" v-model="color.title.g" min="0" max="255">
+                            B: <input type="number" class="color-num" v-model="color.title.b" min="0" max="255">
+                        </div>
+                    </div>
+                    <h4>文字大小</h4>
+                    <input type="number" class="font-size" v-model="size.title" min="1">
+					<h4>文字左右調整</h4>
+                    <input type="number" v-model="paddLeft">
+					<h4>文字上下調整</h4>
+                    <input type="number" v-model="paddUp">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">Github:<a href="https://github.com/jimting">JT</a></div>
+    <script src="script/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+@font-face 
+{
+	font-family: '行書';
+	src: url('wt064.ttf');
+}
+body{
+    font-family: sans-serif;
+}
+#app {
+    display: flex;
+    flex-direction: row;
+}
+#input-field{
+    padding: 32px;
+}
+
+#canvas{
+    width: 679px;
+    height: 443px;
+}
+
+ul{
+    list-style: none;
+    margin-left: 32px;
+    padding: 0;
+}
+li{
+    padding: 5px 0;
+    margin: 0;
+}
+#footer{
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+}
+
+.sub{
+    margin-left: 32px;
+}
+
+.description{
+    font-size: 12px;
+}
+
+h5{
+   margin: 8px 0;
+}
+
+input.color-num{
+    width: 64px;
+}
+
+input.font-size{
+    width: 64px;
+}
