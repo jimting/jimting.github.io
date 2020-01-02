@@ -34,3 +34,9 @@ loopstation的網頁版，code解讀中
 ### NewJPEraCreater
 
 日本新年號梗圖製作器
+
+---
+
+### randomExamSeat
+
+一鍵產生隨機考試座位
