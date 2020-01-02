@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>隨機考試座位</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script>
+			function randomSeat()
+			{
+				var number = $('#number').val();
+				var students = $('#student').val().split('\n');
+				
+				students = shuffle(students); // 大洗牌～
+				
+				//設定排數
+				$("#thead").text("");
+				var row = "<tr><th>列/排</th>";
+				for(var i = 0; i < number; i++)
+				{
+					row += "<th>"+(i+1)+"</th>";
+				}
+				row += "</tr>"
+				$("#thead").html(row);
+				
+				$("#tbody").text("");
+				var student_random_result = "<tr><td>1</td>";
+				if($('#status').is(":checked"))//如果梅花座
+				{
+					console.log("梅花座！");
+					var count = 0;
+					var col = 2;
+					for(var i = 0;i < students.length;i++)
+					{
+						if((number%2)==0)
+						{
+							if((number%2) == 0 && count == 0 && (col%2)==0) //偶數 偶數排 第一個 印
+							{
+								student_random_result += "<td></td>";
+								count++;
+								console.log("給他一個空格！");
+							}
+							
+							
+							if(count == number && i != students.length-1)
+							{
+								student_random_result += "</tr><tr><td>"+col+"</td>";
+								col++;
+								count = 0;
+							}
+							
+							console.log(students[i]);
+							student_random_result += "<td>"+students[i]+"</td>";
+							count++;
+							
+							if(count == number && i != students.length-1)
+							{
+								student_random_result += "</tr><tr><td>"+col+"</td>";
+								col++;
+								count = 0;
+							}
+							
+							if(count != 0)
+							{
+								student_random_result += "<td></td>";
+								count++;
+								console.log("給他一個空格！");
+							}
+							
+							if(count == number && i != students.length-1)
+							{
+								student_random_result += "</tr><tr><td>"+col+"</td>";
+								col++;
+								count = 0;
+							}
+						}
+						else
+						{
+							if((number%2) == 0 && count == 0 && (col%2)==0) //偶數 偶數排 第一個 印
+							{
+								student_random_result += "<td></td>";
+								count++;
+								console.log("給他一個空格！");
+							}
+							
+							
+							if(count == number && i != students.length-1)
+							{
+								student_random_result += "</tr><tr><td>"+col+"</td>";
+								col++;
+								count = 0;
+							}
+							
+							
+							student_random_result += "<td>"+students[i]+"</td>";
+							count++;
+							
+							if(count == number && i != students.length-1)
+							{
+								student_random_result += "</tr><tr><td>"+col+"</td>";
+								col++;
+								count = 0;
+							}
+							
+							student_random_result += "<td></td>";
+							count++;
+							console.log("給他一個空格！");
+						}
+					}
+				}
+				else
+				{
+					var count = 0;
+					var col = 2;
+					for(var i = 0;i < students.length;i++)
+					{
+						student_random_result += "<td>"+students[i]+"</td>";
+						count++;
+						
+						if(count == number && i != students.length-1)
+						{
+							student_random_result += "</tr><tr><td>"+col+"</td>";
+							col++;
+							count = 0;
+						}
+						//$('#check_id').is(":checked")
+						//console.log(students[i]);
+						//code here using lines[i] which will give you each line
+					}
+				}
+				student_random_result += "</tr>";
+				$("#tbody").html(student_random_result);
+				
+			}
+			
+			function shuffle(arr) //洗牌～
+			{
+				var i, j, temp;
+				for (i = arr.length - 1; i > 0; i--) 
+				{
+					j = Math.floor(Math.random() * (i + 1));
+					temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+				return arr;
+			}
+
+		</script>
+	</head>
+	<body>
+
+		<div class="container">
+			<h2>隨機考試座位表產生器</h2>
+			<form class="form-inline" action="/action_page.php">
+				<div class="form-group">
+					<label for="number">排數</label>
+					<input type="number" class="form-control" id="number">
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" id="status">是否梅花座</label>
+				</div>
+				<button type="submit" class="btn btn-default" onclick=randomSeat()>產生！</button>
+			</form>
+			<div class="form-group">
+				<label for="student">學生姓名:(請以換行隔開，善用excel複製貼上><)</label>
+				<textarea class="form-control" rows="5" id="student"></textarea>
+			</div> 
+			<p>(產生的結果可直接複製到excel進行影印的後續處理！)</p>
+			
+			<div id="result">
+				<table class="table table-bordered">
+					<thead id="thead">
+						<tr>
+							<th>列/排</th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>5</th>
+							<th>6</th>
+						</tr>
+					</thead>
+					<tbody id="tbody">
+						<tr>
+							<td>1</td>
+							<td>學生A</td>
+							<td></td>
+							<td>學生B</td>
+							<td></td>
+							<td>學生C</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td></td>
+							<td>學生D</td>
+							<td></td>
+							<td>學生E</td>
+							<td></td>
+							<td>學生F</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>學生G</td>
+							<td></td>
+							<td>學生H</td>
+							<td></td>
+							<td>學生I</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</body>
+</html>
